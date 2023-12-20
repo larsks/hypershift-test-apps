@@ -1,0 +1,15 @@
+apiVersion: nmstate.io/v1
+kind: NodeNetworkConfigurationPolicy
+metadata:
+  name: disable-eno2
+spec:
+  nodeSelector:
+    node-role.kubernetes.io/worker: ""
+  maxUnavailable: 3
+  desiredState:
+    interfaces:
+      - name: eno2
+        type: ethernet
+        state: down
+        ipv4:
+          enabled: false
