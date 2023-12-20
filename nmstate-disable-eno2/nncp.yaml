@@ -10,6 +10,4 @@ spec:
     interfaces:
       - name: eno2
         type: ethernet
-        state: down
-        ipv4:
-          enabled: false
+        state: absent
